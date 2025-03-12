@@ -1,0 +1,31 @@
+""" Implement a program to convert time input provided in hours, minutes, and seconds into a decimal representation. 
+
+
+
+The program should allow the user to enter a time in the format HH:MM:SS, where HH represents hours, MM represents minutes, and SS represents seconds. The program should then convert this input into a decimal representation.
+
+
+
+Function Signature: convert_time()
+
+Input format :
+The input consists of a string in the format "HH:MM:SS", where HH, MM, and SS are integers representing hours, minutes, and seconds.
+
+Output format :
+The output prints a decimal representation of the input time, breaking down into hours as integers, minutes with two decimal places, and seconds as floating-point number.
+
+The format of the output should be: "X hours, Y.YY minutes, and Z.ZZ seconds in decimal representation."""
+
+def convert_time():
+    time_str = input()
+    time_parts = time_str.split(':')
+    hr, min, second = map(float, time_parts)
+
+    new_hr = hr + (min / 60.0) + (second / 3600.0)
+    new_min = min + (second / 60.0)
+    new_second = second
+
+    return int(new_hr), round(new_min, 2), new_second
+
+new_hr, new_min, new_second = convert_time()
+print(f"{new_hr} hours, {new_min} minutes, and {new_second} seconds in decimal representation.")
